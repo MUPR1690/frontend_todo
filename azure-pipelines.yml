@@ -15,5 +15,15 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '$(Build.ArtifactStagingDirectory)'
+    workingDir: '$(DefaultWorkingDirectory)'
     customCommand: 'npm run build'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(DefaultWorkingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'specific'
+    downloadPath: '$(DefaultWorkingDirectory)'
