@@ -1,8 +1,14 @@
-trigger: none
+trigger:
+- main
 
 pool: Todo_infra
 
 steps: 
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '16.x'
+
 - task: Npm@1
   inputs:
     command: 'install'
