@@ -1,4 +1,5 @@
-trigger: main
+trigger: none
+
 pool: Todo_infra
 
 steps: 
