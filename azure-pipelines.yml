@@ -1,6 +1,6 @@
 trigger:
  - main
-pool: Infra pool
+pool: Todo_infra
 
 stages:
   - stage: Nodeinstall
