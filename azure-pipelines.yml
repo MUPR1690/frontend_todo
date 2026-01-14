@@ -1,8 +1,11 @@
-trigger: none 
-pool: Default
+trigger: main
+pool: Todo_infra
 
 steps: 
-- task: PowerShell@2
+- task: Npm@1
   inputs:
-    targetType: 'inline'
-    script: 'Write-Host "Hello World"'
+    command: 'install'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'npm run build'
